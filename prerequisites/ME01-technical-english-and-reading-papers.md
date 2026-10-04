@@ -6,7 +6,7 @@
 
 ## Why this module
 
-Almost everything the LLM plan teaches was first published in English, in research papers, technical reports and documentation. Reading them fluently, and knowing how to extract a method, an equation or a number from them, is what allows each module to go back to the original source instead of a second-hand summary. It also serves the repository and the LinkedIn posts, which are written in English.
+Almost everything the LLM plan teaches was first published in English, in research papers, technical reports and documentation. Reading them fluently lets each module go back to the original source instead of a second-hand summary. It also serves the repository and the LinkedIn posts, which are written in English.
 
 ## Objectives
 

@@ -21,6 +21,8 @@ Project overview, from-scratch policy and evaluation rules: [README.md](README.m
 
 Explicit exception to the `/professor` rule against creating files, granted by the author for these three folders only: `progress/`, `logbook/`, `posts/`.
 
-- **Logbook**: at the end of each work session (and at each validated module), draft its section in `logbook/YYYY-MM-DD.md` (one file per day, one section per session) in English: goal of the session, what was done and how, what blocked and how it was solved, decisions and their reasons, measurements, what was learned, next step. Show the draft in the chat; write it only after the author has corrected or validated it.
+- **Logbook**: at the end of each work session, and at each validated module, draft its section in `logbook/YYYY-MM-DD.md` (one file per day, one section per session), in English.
+  - Content: goal of the session, what was done and how, what blocked and how it was solved, decisions and their reasons, measurements, what was learned, next step.
+  - Show the draft in the chat; write it only after the author has corrected or validated it.
 - **Posts**: at each milestone (a block of modules validated, a first model trained, a measured result), draft a LinkedIn post in English in `posts/YYYY-MM-DD-<topic>.md` from the logbook: a hook, what was built, one concrete technical insight, a number or a visual, what comes next. Never publish anything: the author posts it.
 - Both stay faithful to what actually happened: no invented results, no exaggeration.

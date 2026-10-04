@@ -21,7 +21,9 @@
 
 ## Goal
 
-Acquire every piece of technical knowledge needed to write, train and serve a modern language model from scratch, so that the code base could, given the same volume of training data and compute, follow the published recipes of frontier models. The work follows two learning plans in order: a [prerequisites plan](prerequisites/README.md) that starts from zero, and an [LLM plan](llm/README.md) that builds the full stack, from the most fundamental component to the least. Three honest caveats frame this goal:
+Acquire every piece of technical knowledge needed to write, train and serve a modern language model from scratch, so that the code base could follow the published recipes of frontier models given the same data and compute.
+
+The work follows two learning plans in order: a [prerequisites plan](prerequisites/README.md) that starts from zero, then an [LLM plan](llm/README.md) that builds the full stack, from the most fundamental component to the least. Three honest caveats frame the goal:
 
 - The exact recipes of closed frontier models are not public. The LLM plan covers the published state of the art; reaching frontier quality also requires thousands of GPUs and large amounts of human feedback data, which the plan accounts for in a scale-up dossier (module L69) rather than pretending a single machine can do it.
 - Everything is built and validated at small scale on a single laptop GPU; the distributed parts are simulated with several processes until real hardware is available.
@@ -61,7 +63,12 @@ The rule: the platform may be used; every algorithm of the stack is written by h
 **Allowed**
 
 - **The platform**: hardware instructions and the intrinsics that map to them (AVX2, FMA, F16C; CUDA `__expf`, PTX), the operating system (system calls, entropy from `os.urandom`), compilers and drivers.
-- **Python plumbing**: files and processes (`os`, `sys`, `io`, `pathlib`, `shutil`, `tempfile`, `subprocess`, `signal`), binary data (`struct`, `ctypes`, `mmap`), networking and concurrency (`socket`, `select`, `selectors`, `asyncio`, `threading`, `multiprocessing`), the terminal (`termios`, `tty`), tooling (`argparse`, `logging`, `unittest`, `time`), language helpers (`dataclasses`, `typing`, `enum`, `functools`, `itertools`).
+- **Python plumbing**:
+  - files and processes: `os`, `sys`, `io`, `pathlib`, `shutil`, `tempfile`, `subprocess`, `signal`;
+  - binary data: `struct`, `ctypes`, `mmap`;
+  - networking and concurrency: `socket`, `select`, `selectors`, `asyncio`, `threading`, `multiprocessing`;
+  - terminal and tooling: `termios`, `tty`, `argparse`, `logging`, `unittest`, `time`;
+  - language helpers: `dataclasses`, `typing`, `enum`, `functools`, `itertools`.
 - **C**: the standard library and POSIX (`malloc`, `pthread`, `mmap`, sockets).
 - **CUDA toolkit**: `nvcc`, NVRTC, the runtime and driver APIs, the headers that only wrap hardware types and instructions (`cuda_fp16.h`, `cuda_bf16.h`, `mma.h`, `cooperative_groups`, `cuda_pipeline`), the profilers (Nsight, NVTX).
 - **The browser**: HTML, CSS and JavaScript as it provides them.
@@ -83,7 +90,11 @@ Standard functions such as `math.exp` remain usable inside tests, as references 
 - **Operating system**: Linux (developed on Ubuntu 24.04).
 - **Languages and compilers**: Python 3.12 (standard library only), GCC 12 and Make, the NVIDIA CUDA toolkit (`nvcc`, installed in prerequisite module SY03).
 - **Other tools**: Git, a web browser, and Claude Code for the `/professor` sessions.
-- **Development machine**: NVIDIA GeForce RTX 3070 Laptop GPU (Ampere, compute capability 8.6, 8 GB of memory), AMD Ryzen "Rembrandt" processor (8 cores, 16 threads, AVX2, FMA and F16C, no AVX-512), 14 GB of RAM, about 160 GB of free disk space. Renting cloud GPUs is discussed in module SY05 and decided in module L38, once training costs can be estimated.
+- **Development machine**:
+  - GPU: NVIDIA GeForce RTX 3070 Laptop (Ampere, compute capability 8.6, 8 GB of memory);
+  - CPU: AMD Ryzen "Rembrandt", 8 cores and 16 threads, AVX2, FMA and F16C, no AVX-512;
+  - 14 GB of RAM and about 160 GB of free disk space.
+- **Cloud**: renting GPUs is discussed in module SY05 and decided in module L38, once training costs can be estimated.
 
 ## Getting started
 
@@ -145,7 +156,13 @@ Datasets and model weights are stored outside the repository.
 
 ## Use of AI in this project
 
-Claude Code (Anthropic) designs the two learning plans with the author, with an independent Claude agent reviewing them for missing topics and ordering errors; acts as a teacher in `/professor` mode (explanations, hints, evaluations generated on the spot); and drafts logbook entries and post drafts that the author corrects and validates. All code of the model and its tools is written by the author.
+Claude Code (Anthropic) is used in three roles:
+
+- **Design**: it designs the two learning plans with the author, and an independent Claude agent reviews them for missing topics and ordering errors.
+- **Teaching**: in `/professor` mode, it explains, gives hints and generates the evaluations, without ever writing the solution.
+- **Writing support**: it drafts logbook entries and post drafts, which the author corrects and validates.
+
+All code of the model and its tools is written by the author.
 
 ## Contributors
 

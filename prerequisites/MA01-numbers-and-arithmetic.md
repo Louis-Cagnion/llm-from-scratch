@@ -6,7 +6,7 @@
 
 ## Why this module
 
-Everything in a language model is arithmetic on numbers: parameter counts in billions, training budgets in floating-point operations written as powers of ten, memory sizes, ratios and percentages in every measurement. Integer division and remainders compute the position of an element inside a tensor; divisibility and prime numbers come back in hashing and cryptography. This module makes every one of these operations exact and automatic, without a calculator.
+Everything in a language model is arithmetic: parameter counts in billions, training budgets written as powers of ten, memory sizes, ratios in every measurement. Integer division and remainders locate an element inside a tensor; divisibility and primes come back in hashing and cryptography. This module makes these operations exact and automatic, without a calculator.
 
 ## Objectives
 
