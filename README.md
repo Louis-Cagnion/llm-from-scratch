@@ -56,18 +56,25 @@ Every algorithmic component exists twice: a pure Python reference, written first
 
 ## From-scratch policy
 
-The rule: the platform (hardware, operating system, compilers, drivers) may be used; every algorithm of the stack is written by hand. Imports are checked against an allowlist by a script written in module L00.
+The rule: the platform may be used; every algorithm of the stack is written by hand. A script written in module L00 checks every import against an allowlist.
 
-| Allowed | Not allowed in the project's code |
-|---|---|
-| Python built-ins and plumbing modules: `os`, `sys`, `io`, `time`, `struct`, `ctypes`, `mmap`, `socket`, `select`, `selectors`, `asyncio`, `threading`, `multiprocessing`, `subprocess`, `signal`, `termios`, `tty`, `argparse`, `logging`, `unittest`, `pathlib`, `shutil`, `tempfile`, `dataclasses`, `typing`, `enum`, `functools`, `itertools` | Any third-party package (NumPy, PyTorch, JAX, SciPy, tokenizer, HTTP or image libraries); and standard modules that implement an algorithm of the stack: `math`, `random`, `statistics`, `re`, `json`, `heapq`, `bisect`, `hashlib`, `hmac`, `secrets`, `base64`, `ssl`, `urllib`, `http`, `zlib`, `gzip`, `zipfile`, `sqlite3`, `unicodedata` (each one is rewritten by hand) |
-| C standard library and POSIX (`malloc`, `pthread`, `mmap`, sockets) | `libm` software functions (`expf`, `logf`, ...), BLAS, LAPACK, OpenMP runtime, any third-party C library |
-| Hardware instructions and the compiler intrinsics that map to them (AVX2, FMA, F16C, `sqrtss`; CUDA `__expf`, `ex2.approx`, PTX) | |
-| CUDA toolkit as a platform: `nvcc`, NVRTC, runtime and driver APIs, headers that only wrap hardware types and instructions (`cuda_fp16.h`, `cuda_bf16.h`, `mma.h`, `cooperative_groups`, `cuda_pipeline`), profiling tools (Nsight, NVTX) | cuBLAS, cuDNN, CUTLASS, CUB, Thrust, libcu++, cuRAND, NCCL, Triton |
-| Operating system entropy (`os.urandom`, `getrandom`), and the RDMA verbs driver interface on a real cluster | |
-| HTML, CSS and JavaScript as provided by the browser | Front-end and CSS frameworks |
-| Data: datasets and published open-weight models (loaded by the author's own code) | |
-| External programs run as **test oracles** only, never imported or linked (for example a reference implementation that produces expected outputs once) | |
+**Allowed**
+
+- **The platform**: hardware instructions and the intrinsics that map to them (AVX2, FMA, F16C; CUDA `__expf`, PTX), the operating system (system calls, entropy from `os.urandom`), compilers and drivers.
+- **Python plumbing**: files and processes (`os`, `sys`, `io`, `pathlib`, `shutil`, `tempfile`, `subprocess`, `signal`), binary data (`struct`, `ctypes`, `mmap`), networking and concurrency (`socket`, `select`, `selectors`, `asyncio`, `threading`, `multiprocessing`), the terminal (`termios`, `tty`), tooling (`argparse`, `logging`, `unittest`, `time`), language helpers (`dataclasses`, `typing`, `enum`, `functools`, `itertools`).
+- **C**: the standard library and POSIX (`malloc`, `pthread`, `mmap`, sockets).
+- **CUDA toolkit**: `nvcc`, NVRTC, the runtime and driver APIs, the headers that only wrap hardware types and instructions (`cuda_fp16.h`, `cuda_bf16.h`, `mma.h`, `cooperative_groups`, `cuda_pipeline`), the profilers (Nsight, NVTX).
+- **The browser**: HTML, CSS and JavaScript as it provides them.
+- **Data**: datasets and published open-weight models, loaded by the author's own code; on a real cluster, the RDMA verbs driver interface.
+- **Test oracles**: external programs run once to produce expected outputs, never imported or linked.
+
+**Rewritten by hand, never imported**
+
+- Every third-party package: NumPy, PyTorch, JAX, SciPy, tokenizer, HTTP and image libraries.
+- The standard Python modules that implement an algorithm of the stack: `math`, `random`, `statistics`, `re`, `json`, `heapq`, `bisect`, `hashlib`, `hmac`, `secrets`, `base64`, `ssl`, `urllib`, `http`, `zlib`, `gzip`, `zipfile`, `sqlite3`, `unicodedata`.
+- In C: the software functions of `libm` (`expf`, `logf`, ...), BLAS, LAPACK, the OpenMP runtime, any third-party library.
+- On the GPU: cuBLAS, cuDNN, CUTLASS, CUB, Thrust, libcu++, cuRAND, NCCL, Triton.
+- In the browser: front-end and CSS frameworks.
 
 Standard functions such as `math.exp` remain usable inside tests, as references for the hand-written copies.
 
@@ -115,7 +122,12 @@ Both plans are designed (49 prerequisite modules, 70 LLM modules). The detailed 
 
 ## Legal framework
 
-The obligations of the EU AI Act (Regulation 2024/1689) for providers apply when a model or an AI system is placed on the market or put into service; a personal project that stays private is outside them, and so is work done solely for scientific research. Publishing the model or opening the chat to other people changes that: users must be told they are talking to an AI system, generated images must carry a machine-readable mark, providers of general-purpose AI models carry documentation and copyright obligations, and models trained with more than 10²⁵ floating-point operations are presumed to carry systemic risk, with further duties. Training data raises copyright, licence and GDPR questions of its own. Module L68 covers all of this in detail.
+- **While the project stays private**, the EU AI Act (Regulation 2024/1689) imposes nothing: its obligations apply when a model or an AI system is placed on the market or put into service, and work done solely for scientific research is excluded.
+- **Once the model or the chat is opened to others**, users must be told they are talking to an AI system, generated images must carry a machine-readable mark, and providers of general-purpose AI models carry documentation and copyright obligations.
+- **Beyond 10²⁵ floating-point operations of training**, a model is presumed to carry systemic risk, with further duties.
+- **Training data** raises copyright, licence and GDPR questions of its own.
+
+Module L68 covers all of this in detail.
 
 ## Repository layout
 

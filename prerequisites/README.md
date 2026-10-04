@@ -15,7 +15,7 @@
 
 - Modules are identified by track and number (`MA07`); each one lists the modules it depends on. A module can start once its dependencies are validated, so the mathematics and programming tracks progress in parallel.
 - Each module starts by offering its evaluation directly; passing it validates the module without following it.
-- Each module will get its own file (`prerequisites/MA07-sequences-and-series.md`) with objectives, the competences its evaluation tests, notions, practice programs and references.
+- Each module has its own file with objectives, the competences its evaluation tests, notions, practice programs and references; titles below link to the files already written.
 - Recommended sequence, from the most fundamental to the least: seven stages, each one using only what the previous ones taught; inside a stage, modules are listed in their order of dependency.
 
 1. **Foundations**: MA01, MA02, MA03, IN01, IN02, ME01.
@@ -28,14 +28,14 @@
 
 ## Track MA: mathematics
 
-- **MA01. Numbers and arithmetic** (depends on: none): natural numbers and integers, operations and precedence, divisibility, Euclidean division, GCD and LCM, prime numbers, fractions, decimals, percentages, integer powers, square roots, scientific notation, orders of magnitude, rounding.
-- **MA02. Elementary algebra** (MA01): algebraic expressions, expanding and factoring, notable identities, linear equations and inequalities, quadratic equations (discriminant), systems of linear equations (2×2, 3×3), absolute value, rational exponents.
-- **MA03. Logic, sets and proofs** (MA02): propositions, connectives, quantifiers, implication and equivalence, negation, sets and set operations, Cartesian product, ∑ and ∏ notation, functions between sets (injective, surjective, bijective), order and equivalence relations, proof techniques (direct, contrapositive, contradiction, induction, counterexample).
-- **MA04. Real functions** (MA02, MA03): domain, range, graph, linear and affine functions, polynomials, rational functions, square root, absolute value, floor; composition, inverse function, monotonicity, parity, periodicity, graph transformations, piecewise functions.
-- **MA05. Exponential and logarithm** (MA04): exp, ln, log₂, log₁₀, algebraic properties, real powers, comparative growth, logarithmic scales, sigmoid, tanh and softplus as functions.
-- **MA06. Trigonometry and complex numbers** (MA04, MA05): radians, unit circle, sin, cos, tan, addition and double-angle identities; complex numbers in algebraic, trigonometric and exponential form, Euler's formula, modulus and argument, multiplication as rotation, roots of unity.
-- **MA07. Sequences and series** (MA03, MA05): arithmetic and geometric sequences, recurrences, limits and convergence, monotone bounded sequences, series, geometric series, convergence tests, power series, Taylor series of exp, ln, sin and cos (basis of the hand-written math library), exponential moving averages (basis of Adam).
-- **MA08. Linear algebra I** (MA02, MA03): vectors of ℝⁿ, linear combinations, dot product, norms (L1, L2, L∞), angles, cosine similarity, matrices, matrix product and its cost, transpose, special matrices (identity, diagonal, triangular, symmetric), linear systems and Gaussian elimination, inverse, determinant, rank.
+- **[MA01. Numbers and arithmetic](MA01-numbers-and-arithmetic.md)** (depends on: none): natural numbers and integers, operations and precedence, divisibility, Euclidean division, GCD and LCM, prime numbers, fractions, decimals, percentages, integer powers, square roots, scientific notation, orders of magnitude, rounding.
+- **[MA02. Elementary algebra](MA02-elementary-algebra.md)** (MA01): algebraic expressions, expanding and factoring, notable identities, linear equations and inequalities, quadratic equations (discriminant), systems of linear equations (2×2, 3×3), absolute value, rational exponents.
+- **[MA03. Logic, sets and proofs](MA03-logic-sets-and-proofs.md)** (MA02): propositions, connectives, quantifiers, implication and equivalence, negation, sets and set operations, Cartesian product, ∑ and ∏ notation, functions between sets (injective, surjective, bijective), order and equivalence relations, proof techniques (direct, contrapositive, contradiction, induction, counterexample).
+- **[MA04. Real functions](MA04-real-functions.md)** (MA02, MA03): domain, range, graph, linear and affine functions, polynomials, rational functions, square root, absolute value, floor; composition, inverse function, monotonicity, parity, periodicity, graph transformations, piecewise functions.
+- **[MA05. Exponential and logarithm](MA05-exponential-and-logarithm.md)** (MA04): exp, ln, log₂, log₁₀, algebraic properties, real powers, comparative growth, logarithmic scales, sigmoid, tanh and softplus as functions.
+- **[MA06. Trigonometry and complex numbers](MA06-trigonometry-and-complex-numbers.md)** (MA04, MA05): radians, unit circle, sin, cos, tan, addition and double-angle identities; complex numbers in algebraic, trigonometric and exponential form, Euler's formula, modulus and argument, multiplication as rotation, roots of unity.
+- **[MA07. Sequences and series](MA07-sequences-and-series.md)** (MA03, MA05): arithmetic and geometric sequences, recurrences, limits and convergence, monotone bounded sequences, series, geometric series, convergence tests, power series, Taylor series of exp, ln, sin and cos (basis of the hand-written math library), exponential moving averages (basis of Adam).
+- **[MA08. Linear algebra I](MA08-linear-algebra-i.md)** (MA02, MA03): vectors of ℝⁿ, linear combinations, dot product, norms (L1, L2, L∞), angles, cosine similarity, matrices, matrix product and its cost, transpose, special matrices (identity, diagonal, triangular, symmetric), linear systems and Gaussian elimination, inverse, determinant, rank.
 - **MA09. Limits and continuity** (MA07): limits of functions, indeterminate forms, ε-δ definition, continuity, intermediate value theorem, asymptotes, Landau notation (o, O).
 - **MA10. Differentiation** (MA06, MA09): difference quotient, derivative, tangent line, rules (sum, product, quotient, chain rule), derivatives of usual functions (including sigmoid, tanh, softplus and the tanh approximation of GELU), function analysis, extrema, convexity, mean value theorem, Taylor expansions, L'Hôpital's rule, Newton's method.
 - **MA11. Integration** (MA10): antiderivatives, Riemann integral and sums, fundamental theorem of calculus, integration by parts, substitution, improper integrals, Gaussian integral, error function erf, numerical integration (rectangle, trapezoid, Simpson).
@@ -57,11 +57,11 @@
 
 ## Track IN: programming
 
-- **IN01. Linux and the terminal** (none): file system, paths, permissions, bash shell (commands, redirections, pipes, scripts, environment variables), processes and signals, a text editor, package management, SSH.
-- **IN02. Python I** (IN01): interpreter, types (int, float, str, bool, None), variables, operators, conditions, loops, functions, scope, strings and formatting, lists, tuples, dictionaries, sets, comprehensions, files, exceptions, standard library modules.
-- **IN03. Git** (IN01): repository, commits, staging area, history, branches, merging, conflicts, rebasing, remotes, hooks, commit messages, `.gitignore` (data and weights kept out of the repository).
-- **IN04. Python II** (IN02): object-oriented programming (classes, inheritance, composition, special methods and operator overloading, the basis of a `Tensor` class), iterators and generators, decorators, closures, context managers, type hints, dataclasses, recursion, modules and packages, virtual environments.
-- **IN05. C I** (IN01): compilation chain (preprocessor, compiler, linker, Makefile), types, operators, control flow, functions, pointers, arrays, strings, structures, unions, enumerations, dynamic allocation, input and output, headers, multi-file programs.
+- **[IN01. Linux and the terminal](IN01-linux-and-the-terminal.md)** (none): file system, paths, permissions, bash shell (commands, redirections, pipes, scripts, environment variables), processes and signals, a text editor, package management, SSH.
+- **[IN02. Python I](IN02-python-i.md)** (IN01): interpreter, types (int, float, str, bool, None), variables, operators, conditions, loops, functions, scope, strings and formatting, lists, tuples, dictionaries, sets, comprehensions, files, exceptions, standard library modules.
+- **[IN03. Git](IN03-git.md)** (IN01): repository, commits, staging area, history, branches, merging, conflicts, rebasing, remotes, hooks, commit messages, `.gitignore` (data and weights kept out of the repository).
+- **[IN04. Python II](IN04-python-ii.md)** (IN02): object-oriented programming (classes, inheritance, composition, special methods and operator overloading, the basis of a `Tensor` class), iterators and generators, decorators, closures, context managers, type hints, dataclasses, recursion, modules and packages, virtual environments.
+- **[IN05. C I](IN05-c-i.md)** (IN01): compilation chain (preprocessor, compiler, linker, Makefile), types, operators, control flow, functions, pointers, arrays, strings, structures, unions, enumerations, dynamic allocation, input and output, headers, multi-file programs.
 - **IN06. Python III** (IN04): memory model (references, mutability, reference counting, garbage collection), bytes, bytearray, `struct`, `array`, memoryview, binary files and `mmap`, serialization formats (and why `pickle` is unsafe), concurrency (threads and the GIL, multiprocessing, asyncio, selectors), sockets, subprocess, argparse, logging, performance measurement (time, timeit, cProfile).
 - **IN07. Algorithms and data structures** (IN04, MA12, MA13): complexity, dynamic arrays, linked lists, stacks, queues, hash tables, binary search trees, heaps and priority queues, tries, graphs (breadth-first and depth-first search, shortest paths), sorting (merge sort, quicksort, heapsort), binary search, divide and conquer, dynamic programming (edit distance, Viterbi, longest common subsequence), greedy algorithms (Huffman), backtracking.
 - **IN08. The client side of the web** (IN02): HTML, CSS (flexbox, grid, responsive layout), SVG, JavaScript (types, functions, objects, DOM, events, promises and async, fetch, streams), accessibility.
@@ -83,7 +83,7 @@
 
 ## Track ME: method
 
-- **ME01. Technical English and reading papers** (none): machine learning vocabulary, structure of a research paper (abstract, method, experiments, appendices), active reading, reproducing an equation or a table, arXiv, following a bibliography.
+- **[ME01. Technical English and reading papers](ME01-technical-english-and-reading-papers.md)** (none): machine learning vocabulary, structure of a research paper (abstract, method, experiments, appendices), active reading, reproducing an equation or a table, arXiv, following a bibliography.
 - **ME02. Machine learning concepts** (MA18): supervised, unsupervised, self-supervised and reinforcement learning, training, validation and test data, generalization, overfitting, loss functions, metrics, a short history of artificial intelligence up to large language models.
 - **ME03. Experimental method** (MA18, IN10, IN08): hypothesis, baseline, ablation, one change at a time, measurement noise, repetitions, statistical significance, experiment log, plotting results with hand-made SVG charts, reproducibility.
 
