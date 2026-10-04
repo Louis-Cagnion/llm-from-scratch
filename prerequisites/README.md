@@ -1,6 +1,6 @@
 # Prerequisites plan
 
-**Summary.** Brings the author from zero to the level needed to write every algorithm of a modern language model by hand: mathematics (from arithmetic to matrix calculus, probability, statistics, information theory, optimization, signal processing, differential equations (ordinary and stochastic), numerical linear algebra, reinforcement learning theory and the number theory behind cryptography), programming (Python, C, algorithms, formal languages, compilers, cryptography, testing, networking, web, security), systems and performance (computer architecture, operating systems, GPU programming with CUDA, parallel and distributed computing, cloud) and method (reading research papers, running experiments). 49 modules in four tracks, each validated by its own evaluation, and a final evaluation that covers them all. Evaluation rules: see the [main README](../README.md#evaluations).
+**Summary.** Everything needed before building a language model by hand, starting from zero: mathematics, programming, systems and research method. 49 modules in four tracks, followed in seven stages from the most fundamental to the least; each module is validated by its own evaluation, and a final evaluation covers them all ([evaluation rules](../README.md#evaluations)).
 
 ## Contents
 
