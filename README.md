@@ -118,7 +118,7 @@ Standard functions such as `math.exp` remain usable inside tests, as references 
 
 ## Status
 
-Both plans are designed (49 prerequisite modules, 70 LLM modules). The detailed module files of the prerequisites are being written stage by stage; stages 1 to 6 are available. Learning starts with stage 1 of the prerequisites.
+Both plans are designed (49 prerequisite modules, 70 LLM modules). Every prerequisite module has its detailed file; the module files of the LLM plan come next. Learning starts with stage 1 of the prerequisites.
 
 ## Legal framework
 
